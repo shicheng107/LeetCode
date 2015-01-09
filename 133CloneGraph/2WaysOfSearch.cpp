@@ -106,5 +106,5 @@ int main(int argc, const char** argv)
     gh.SearchGraphBreadth();
 
     cin.get();
-	return 0;
+    return 0;
 }
