@@ -5,7 +5,7 @@
 #include <iostream>
 
 // The first idea would be iterate the array.
-// This time complexity is O(n^2).
+// The time complexity is O(n^2).
 
 #include <stdint.h>
 #include <utility>
