@@ -3,15 +3,17 @@
 */
 
 #include <iostream>
+#include <stdint.h>
 using namespace std;
 
-#include <stdint.h>
+// Time complexity: O(n+m).
+// Space complexity: O(n+m).
 #include <vector>
 
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x, ListNode *n) : val(x), next(n) {}
+    ListNode(int x) : val(x), next(NULL) {}
 };
 
 class Solution
@@ -39,12 +41,18 @@ public:
             add = n / 10;
             n %= 10;
 
-            ListNode *newNode = new ListNode(n, NULL);
+            ListNode *newNode = new ListNode(n);
             if (l3 == NULL)
                 l3 = newNode;
             if (previous != NULL)
                 previous->next = newNode;
             previous = newNode;
+        }
+        if (add > 0)
+        {
+            ListNode *newNode = new ListNode(add);
+            if (previous != NULL)
+                previous->next = newNode;
         }
 
         return l3;
@@ -55,7 +63,8 @@ public:
         ListNode *l = NULL;
         for (auto it = n.rbegin(); it != n.rend(); ++it)
         {
-            ListNode *newNode = new ListNode(*it, l);
+            ListNode *newNode = new ListNode(*it);
+            newNode->next = l;
             l = newNode;
         }
         return l;
