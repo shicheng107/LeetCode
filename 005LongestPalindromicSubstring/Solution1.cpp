@@ -8,6 +8,7 @@ using namespace std;
 
 // Average time complexity: O(n)?  I am not so sure.
 // Average space complexity: O(n).
+// Based on https://oj.leetcode.com/discuss/9948/a-very-brief-o-n-time-o-1-space-solution-ac.
 #include <vector>
 using namespace std;
 
