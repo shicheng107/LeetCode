@@ -12,7 +12,7 @@ public:
         {
             for (int j = 0; j < v2.size(); j++)
             {
-                unsigned char carry = i * j;
+                unsigned char carry = v1[i] * v2[j];
                 int index = i + j;
                 do
                 {
@@ -23,10 +23,8 @@ public:
                 } while (carry != 0);
             }
         }
-        if (result[result.size() - 1] == 0)
-            result.erase(result.end() - 1);
-        if (result[result.size() - 1] == 0)
-            result.erase(result.end() - 1);
+        while (result[result.size() - 1] == 0 && result.size() > 1)
+            result.pop_back();
         bool negative = false;
         if ((num1[0] == '-') ^ (num2[0] == '-'))
             negative = true;
@@ -41,7 +39,7 @@ public:
             if (c >= '0' && c <= '9')
                 v.push_back(c - '0');
         }
-        reverse(v.begin(), v.begin());
+        reverse(v.begin(), v.end());
         return v;
     }
 
@@ -53,7 +51,6 @@ public:
         reverse(v.begin(), v.end());
         for (auto c : v)
             s.push_back((char)(c + '0'));
-        s.push_back('\0');
         return s;
     }
 };
