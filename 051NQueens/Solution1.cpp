@@ -11,7 +11,6 @@ public:
         vector<vector<string> > result;
         stack<pair<int, int> > tries;
 
-        int loop = 0;
         while (true)
         {
             if (row == 0 && indexes[0] >= n)
@@ -40,7 +39,8 @@ public:
             if (IsValid(q, n, row, indexes[row]))
             {
                 row++;
-                indexes[row] = 0;
+                if (row < n)
+                    indexes[row] = 0;
             }
             else
             {
@@ -65,12 +65,5 @@ public:
             if (q[x -i - 1][y + i + 1] == 'Q')
                 return false;
         return true;
-    }
-
-    void Print(const vector<string> &q)
-    {
-        for (auto s : q)
-            cout << s << endl;
-        cout << endl;
     }
 };
